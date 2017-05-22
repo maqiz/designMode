@@ -41,3 +41,18 @@ javascript之设计模式
 			}
 		}
 		xiaoli.callXiaowang('didi');
+		
+		//构造函数
+		function Createdoor(huawen){
+			if(!(this instanceof Createdoor)){
+				return new Createdoor(huawen);
+			}
+			this.suo = "普通";
+			this.huawen = huawen ? huawen : "普通";
+			this.create = function(){
+				return "锁"+this.suo+"花纹"+this.huawen;
+			}
+		}
+		var xiaozhang = new Createdoor("dd");
+		var xiaoli = new Createdoor();
+		console.log(xiaozhang.create());
